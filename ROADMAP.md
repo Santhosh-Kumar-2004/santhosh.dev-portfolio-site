@@ -15,3 +15,11 @@
 - Repo strategy (monorepo)
 
 ---
+
+## PHASE 1 – Project Structure
+- Create GitHub repository
+- Setup monorepo structure
+- Initialize FastAPI backend
+- Initialize Vite frontend
+
+---
