@@ -31,3 +31,11 @@
 - Environment configuration
 
 ---
+
+## PHASE 3 – Frontend Development
+- React routing
+- Pages (Home, About, Projects, Contact)
+- API integration
+- Form submission
+
+---
