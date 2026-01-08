@@ -39,3 +39,17 @@
 - Form submission
 
 ---
+
+## PHASE 4 – UI & UX
+- Responsive layout
+- Clean design
+- Error handling
+- Loading states
+
+---
+
+## PHASE 5 – Deployment
+- Deploy backend
+- Deploy frontend
+- Connect cloud database
+- Final testing
