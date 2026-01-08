@@ -23,3 +23,11 @@
 - Initialize Vite frontend
 
 ---
+
+## PHASE 2 – Backend Development
+- PostgreSQL connection
+- Create models (projects, contacts)
+- API endpoints
+- Environment configuration
+
+---
