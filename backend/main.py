@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
+from core.database import Base, engine
 
 load_dotenv()
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="OTP Auth Verification System(MVP)",
