@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 class ProjectOut(BaseModel):
     id: int
@@ -10,3 +10,8 @@ class ProjectOut(BaseModel):
 
     class Config:
         orm_mode = True
+
+class ContactCreate(BaseModel):
+    name: str
+    email: EmailStr
+    message: str
