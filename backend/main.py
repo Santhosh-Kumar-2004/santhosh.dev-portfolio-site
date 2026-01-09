@@ -7,9 +7,9 @@ load_dotenv()
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="OTP Auth Verification System(MVP)",
-    description="A simple full-stack authentication MVP using OTP (One-Time Password) instead of passwords.",
-    version="0.7.0",   
+    title="Santhosh's Portfolio Site",
+    description="The First version of the Santhosh's Portfolio site.",
+    version="1.0.0",   
 )
 
 @app.get("/api/health")
