@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
 
-app = FastAPI(title="Santhosh Portfolio API")
-
 load_dotenv()
 
 app = FastAPI(
@@ -13,4 +11,6 @@ app = FastAPI(
 
 @app.get("/api/health")
 def health_check():
-    return {"status": "ok"}
+    return {
+        "status": "ok"
+    }
