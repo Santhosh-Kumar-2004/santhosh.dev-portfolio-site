@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
 from core.database import Base, engine
+from routers.projects import router as project_router
+from routers.contacts import router as contact_router
 
 load_dotenv()
 
@@ -17,3 +19,6 @@ def health_check():
     return {
         "status": "ok"
     }
+
+app.include_router(project_router)
+app.include_router(contact_router)
