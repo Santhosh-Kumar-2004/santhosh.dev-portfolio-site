@@ -13,19 +13,17 @@ function App() {
   return (
     <>
       <Background />
-      <div className="app-background">
-        <DraggableID />
-        <ScrollProgress />
-        {/* <CustomCursor /> */}
+      <DraggableID />
+      <ScrollProgress />
+      {/* <CustomCursor /> */}
 
 
-        <Navbar />
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        {/* <Contact /> */}
-      </div>
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      {/* <Contact /> */}
     </>
   );
 }

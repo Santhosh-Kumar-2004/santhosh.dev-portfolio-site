@@ -9,12 +9,6 @@
   box-sizing: border-box;
 }
 
-#root {
-  /* position: relative; */
-  z-index: 1;
-}
-
-
 /* =========================
    FONT VARIABLES
 ========================= */
@@ -79,7 +73,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-main);
   background-color: var(--bg-main);
   color: var(--text-primary);
   transition:

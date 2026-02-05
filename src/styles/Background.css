@@ -2,100 +2,124 @@
 .app-background {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   background-color: var(--bg-main);
   overflow: hidden;
+  transition: background-color 0.5s ease;
 }
 
-/* Adds a dark fade to the edges to make the ID card and text pop */
+/* Light Mode specific adjustments for the base color if variables aren't set */
+[data-theme='light'] {
+  --grid-line: rgba(0, 0, 0, 0.06);
+  --neon-opacity: 0.3;
+  --orb-opacity: 0.03;
+}
+
+[data-theme='dark'] {
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --neon-opacity: 0.7;
+  --orb-opacity: 0.08;
+}
+
+/* ---------- VIGNETTE (Dynamic Depth) ---------- */
 .vignette-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.4) 100%);
+  background: radial-gradient(
+    circle at center, 
+    transparent 10%, 
+    var(--bg-main) 100%
+  );
   z-index: 1;
+  pointer-events: none;
 }
 
-/* ---------- GRID LAYER ---------- */
+/* ---------- IMPROVED GRID LAYER ---------- */
 .grid-layer {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(circle at center, black, transparent 80%);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+  /* Masking creates a "fading out" effect toward the edges */
+  mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
 }
 
-/* ---------- NEON FLOWS ---------- */
+/* ---------- ENHANCED NEON FLOWS ---------- */
 .neon-line {
   position: absolute;
-  opacity: 0.6;
+  opacity: var(--neon-opacity);
   pointer-events: none;
+  z-index: 2;
+  border-radius: 100px;
 }
 
 .neon-line.vertical {
-  width: 1px;
-  height: 300px; /* Short laser bursts instead of infinite long lines */
-  background: linear-gradient(to bottom, transparent, var(--accent-primary), transparent);
-  filter: drop-shadow(0 0 8px var(--accent-primary));
+  width: 2px;
+  height: 250px;
+  background: linear-gradient(
+    to bottom, 
+    transparent, 
+    var(--accent-primary), 
+    var(--accent-primary), 
+    transparent
+  );
+  filter: blur(1px) drop-shadow(0 0 12px var(--accent-primary));
   animation: flow-vertical linear infinite;
 }
 
 .neon-line.horizontal {
-  height: 1px;
-  width: 300px;
-  background: linear-gradient(to right, transparent, var(--accent-primary), transparent);
-  filter: drop-shadow(0 0 8px var(--accent-primary));
+  height: 2px;
+  width: 250px;
+  background: linear-gradient(
+    to right, 
+    transparent, 
+    var(--accent-primary), 
+    var(--accent-primary), 
+    transparent
+  );
+  filter: blur(1px) drop-shadow(0 0 12px var(--accent-primary));
   animation: flow-horizontal linear infinite;
 }
 
-/* ---------- PLACEMENT & TIMING ---------- */
-.v1 { left: 15%; animation-duration: 6s; animation-delay: 0s; }
-.v2 { left: 40%; animation-duration: 9s; animation-delay: -2s; }
-.v3 { left: 65%; animation-duration: 7s; animation-delay: -4s; }
-.v4 { left: 85%; animation-duration: 10s; animation-delay: -1s; }
+/* ---------- STAGGERED MOTION PATHS ---------- */
+.v1 { left: 10%; animation-duration: 7s; }
+.v2 { left: 35%; animation-duration: 10s; animation-delay: -2s; }
+.v3 { left: 60%; animation-duration: 8s; animation-delay: -5s; }
+.v4 { left: 88%; animation-duration: 12s; }
 
-.h1 { top: 25%; animation-duration: 8s; animation-delay: -3s; }
-.h2 { top: 55%; animation-duration: 11s; animation-delay: -5s; }
-.h3 { top: 80%; animation-duration: 6s; animation-delay: -2s; }
+.h1 { top: 20%; animation-duration: 9s; animation-delay: -1s; }
+.h2 { top: 50%; animation-duration: 11s; }
+.h3 { top: 85%; animation-duration: 7s; animation-delay: -4s; }
 
 /* ---------- AMBIENT DEPTH ORBS ---------- */
 .ambient-orb {
   position: absolute;
   border-radius: 50%;
   background: var(--accent-primary);
-  filter: blur(120px);
-  opacity: 0.05;
+  filter: blur(140px);
+  opacity: var(--orb-opacity);
   z-index: 0;
-  animation: pulse-orb 10s ease-in-out infinite alternate;
+  animation: pulse-orb 12s ease-in-out infinite alternate;
 }
 
-.orb-1 { width: 400px; height: 400px; top: -100px; right: -100px; }
-.orb-2 { width: 600px; height: 600px; bottom: -200px; left: -200px; animation-duration: 15s; }
+.orb-1 { width: 500px; height: 500px; top: -150px; left: -100px; }
+.orb-2 { width: 700px; height: 700px; bottom: -250px; right: -150px; animation-delay: -2s; }
 
-/* ---------- ANIMATIONS ---------- */
+/* ---------- KEYFRAMES ---------- */
 @keyframes flow-vertical {
-  0% { transform: translateY(-300px); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(110vh); opacity: 0; }
+  0% { transform: translateY(-300px); }
+  100% { transform: translateY(110vh); }
 }
 
 @keyframes flow-horizontal {
-  0% { transform: translateX(-300px); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateX(110vw); opacity: 0; }
+  0% { transform: translateX(-300px); }
+  100% { transform: translateX(110vw); }
 }
 
 @keyframes pulse-orb {
-  from { transform: scale(1); opacity: 0.03; }
-  to { transform: scale(1.2); opacity: 0.07; }
-}
-
-/* Support for Light Mode - make lines softer */
-[data-theme='light'] .grid-layer {
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.15) translate(30px, 20px); }
 }
