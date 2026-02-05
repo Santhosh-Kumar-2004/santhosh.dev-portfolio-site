@@ -6,14 +6,13 @@ import "../styles/CustomCursor.css";
 export default function CustomCursor() {
   const [cursorType, setCursorType] = useState("default");
 
-  // Motion values for smooth inertia
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
 
-  // Spring physics for the outer ring (the "lag" effect)
-  const springConfig = { stiffness: 500, damping: 28, mass: 0.5 };
-  const ringX = useSpring(mouseX, springConfig);
-  const ringY = useSpring(mouseY, springConfig);
+  // Smooth spring physics for that "fluid" following feel
+  const springConfig = { stiffness: 450, damping: 35, mass: 0.8 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     const moveCursor = (e) => {
@@ -23,20 +22,16 @@ export default function CustomCursor() {
 
     const handleMouseOver = (e) => {
       const target = e.target;
-      // Check for links/buttons
       if (target.closest("a, button, .hero-btn-primary, .hero-btn-secondary")) {
         setCursorType("pointer");
-      } 
-      // Check for the Draggable ID card
-      else if (target.closest(".id-card-outer")) {
+      } else if (target.closest(".id-card-outer")) {
         setCursorType("grab");
-      } 
-      else {
+      } else {
         setCursorType("default");
       }
     };
 
-    const handleMouseDown = () => setCursorType((prev) => (prev === "grab" ? "grabbing" : "click"));
+    const handleMouseDown = () => setCursorType("clicking");
     const handleMouseUp = () => setCursorType("default");
 
     window.addEventListener("mousemove", moveCursor);
@@ -53,23 +48,17 @@ export default function CustomCursor() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="cursor-container">
-      {/* Small dot - follows mouse instantly */}
-      <motion.div
-        className={`cursor-dot ${cursorType}`}
-        style={{
-          x: mouseX,
-          y: mouseY,
-        }}
-      />
-      {/* Large ring - follows with spring physics */}
-      <motion.div
-        className={`cursor-ring ${cursorType}`}
-        style={{
-          x: ringX,
-          y: ringY,
-        }}
-      />
-    </div>
+    <motion.div
+      className={`custom-cursor-wrapper ${cursorType}`}
+      style={{
+        x: smoothX,
+        y: smoothY,
+      }}
+    >
+      <div className="cursor-symbol">
+        {"</>"}
+      </div>
+      <div className="cursor-glow" />
+    </motion.div>
   );
 }
