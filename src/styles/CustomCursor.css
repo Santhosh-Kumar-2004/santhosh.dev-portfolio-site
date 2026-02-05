@@ -1,7 +1,7 @@
 /* Hide default cursor */
-html, body, * {
+/* html, body, * {
   cursor: none !important;
-}
+} */
 
 .custom-cursor-wrapper {
   position: fixed;
@@ -76,7 +76,7 @@ html, body, * {
   .custom-cursor-wrapper {
     display: none;
   }
-  html, body, * {
+  /* html, body, * {
     cursor: auto !important;
-  }
+  } */
 }

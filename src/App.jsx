@@ -15,7 +15,7 @@ function App() {
       <Background />
       <DraggableID />
       <ScrollProgress />
-      <CustomCursor />
+      {/* <CustomCursor /> */}
 
 
       <Navbar />

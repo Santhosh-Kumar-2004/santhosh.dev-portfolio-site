@@ -17,9 +17,9 @@ export default function About() {
     if (!isInView) return;
 
     const targets = {
-      experience: 2,
-      projects: 10,
-      commits: 500, // 🔥 Big personal metric
+      experience: 1,
+      projects: 20,
+      commits: 4500, // 🔥 Big personal metric
     };
 
     const duration = 1500;
@@ -108,7 +108,7 @@ export default function About() {
 
             <div className="stat-card">
               <h3>{counts.commits}+</h3>
-              <p>Code Commits</p>
+              <p>Code Commits on GitHub</p>
             </div>
           </div>
 
