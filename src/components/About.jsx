@@ -1,101 +1,108 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+// eslint-disable-next-line no-unused-vars
+import { motion, useInView } from "framer-motion";
+import "../styles/About.css";
 
 export default function About() {
-  const [counts, setCounts] = useState({
-    experience: 0,
-    projects: 0,
-    companies: 0,
-  });
+  const [counts, setCounts] = useState({ experience: 0, projects: 0, companies: 0 });
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    const targets = {
-      experience: 2,   // change later if needed
-      projects: 10,
-      companies: 3,
-    };
+    if (!isInView) return;
 
-    const duration = 1200;
-    const interval = 30;
-
-    const increment = {
-      experience: targets.experience / (duration / interval),
-      projects: targets.projects / (duration / interval),
-      companies: targets.companies / (duration / interval),
-    };
-
+    const targets = { experience: 2, projects: 10, companies: 3 };
+    const duration = 1500;
+    const frameRate = 1000 / 60;
+    const totalFrames = Math.round(duration / frameRate);
+    
+    let frame = 0;
     const timer = setInterval(() => {
-      setCounts((prev) => ({
-        experience:
-          prev.experience < targets.experience
-            ? Math.min(prev.experience + increment.experience, targets.experience)
-            : prev.experience,
+      frame++;
+      const progress = frame / totalFrames;
+      
+      setCounts({
+        experience: Math.min(Math.floor(targets.experience * progress), targets.experience),
+        projects: Math.min(Math.floor(targets.projects * progress), targets.projects),
+        companies: Math.min(Math.floor(targets.companies * progress), targets.companies),
+      });
 
-        projects:
-          prev.projects < targets.projects
-            ? Math.min(prev.projects + increment.projects, targets.projects)
-            : prev.projects,
-
-        companies:
-          prev.companies < targets.companies
-            ? Math.min(prev.companies + increment.companies, targets.companies)
-            : prev.companies,
-      }));
-    }, interval);
-
-    setTimeout(() => clearInterval(timer), duration);
+      if (frame === totalFrames) clearInterval(timer);
+    }, frameRate);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isInView]);
+
+  const skillCategories = [
+    { title: "Frontend", skills: ["React", "Next.js", "TypeScript", "Framer Motion"] },
+    { title: "Backend", skills: ["Node.js", "Express", "MongoDB", "PostgreSQL"] },
+    { title: "Tools", skills: ["Git", "Docker", "AWS", "Figma"] }
+  ];
 
   return (
-    <section id="about" aria-label="About me section">
+    <section id="about" className="about-section" ref={sectionRef}>
       <div className="section-inner about-wrapper">
-        {/* Heading */}
-        <header className="about-header">
-          <h2>A Bit About Me</h2>
-        </header>
+        
+        {/* Left Side: Text & Content */}
+        <div className="about-main-content">
+          <header className="about-header">
+            <span className="section-subtitle">Discovery</span>
+            <h2 className="section-title">A Bit About Me</h2>
+          </header>
 
-        {/* Story */}
-        <div className="about-text">
-          <p>
-            I started my journey with a strong interest in building things
-            that are both functional and visually clean. Over time, I moved
-            deeper into full-stack development, where I enjoy designing
-            scalable frontends and structuring codebases that are easy to
-            maintain and evolve.
-          </p>
-
-          <p>
-            I focus on creating modern web experiences with clarity,
-            performance, and real-world usability in mind. I enjoy solving
-            problems, refining user flows, and continuously improving how
-            products feel and behave.
-          </p>
-
-          <p>
-            Outside of development, I enjoy exploring tech tools, learning
-            new concepts, and occasionally unwinding with movies or strategy
-            games that challenge how I think.
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="about-stats">
-          <div className="stat-item">
-            <h3>{Math.floor(counts.experience)}+</h3>
-            <p>Years of Experience</p>
+          <div className="about-text">
+            <p>
+              I’m a Full-Stack Developer driven by the intersection of <strong>clean aesthetics</strong> and 
+              <strong> robust engineering</strong>. My journey started with a curiosity for how things work on the web, 
+              which evolved into a passion for building scalable applications that solve real-world problems.
+            </p>
+            <p>
+              I don’t just write code; I design systems. Whether it's crafting a pixel-perfect UI or 
+              structuring a complex database, I focus on performance, maintainability, and user experience.
+            </p>
           </div>
 
-          <div className="stat-item">
-            <h3>{Math.floor(counts.projects)}+</h3>
-            <p>Completed Projects</p>
-          </div>
-
-          <div className="stat-item">
-            <h3>{Math.floor(counts.companies)}+</h3>
-            <p>Companies Worked With</p>
+          <div className="skills-container">
+            {skillCategories.map((cat, index) => (
+              <div key={index} className="skill-category">
+                <h4>{cat.title}</h4>
+                <div className="skill-tags">
+                  {cat.skills.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Right Side: Stats & Details */}
+        <div className="about-side-content">
+          <div className="stats-grid">
+            <div className="stat-card">
+              <h3>{counts.experience}+</h3>
+              <p>Years Experience</p>
+            </div>
+            <div className="stat-card">
+              <h3>{counts.projects}+</h3>
+              <p>Projects Done</p>
+            </div>
+            <div className="stat-card">
+              <h3>{counts.companies}+</h3>
+              <p>Collaborations</p>
+            </div>
+          </div>
+
+          <div className="about-info-box">
+             <div className="info-item">
+                <span className="info-label">Location</span>
+                <span className="info-value">India</span>
+             </div>
+             <div className="info-item">
+                <span className="info-label">Availability</span>
+                <span className="info-value text-highlight">Open to Work</span>
+             </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
