@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import idCardImage from "../assets/Santhosh.png";
+import idCardImage from "../assets/Santhosh.webp";
 import "../styles/DraggableID.css";
 
 export default function DraggableID() {
@@ -60,7 +60,7 @@ export default function DraggableID() {
           </div>
 
           <div className="id-full-image">
-            <img src={idCardImage} alt="Santhosh" draggable={false} />
+            <img src={idCardImage} alt="Santhosh" draggable={false} loading="lazy"/>
             <div className="image-gradient-overlay" />
           </div>
 
