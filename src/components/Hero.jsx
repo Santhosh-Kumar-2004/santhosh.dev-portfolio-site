@@ -1,6 +1,5 @@
 import "../styles/Hero.css";
 import { Link } from "react-scroll";
-import MagneticButton from "./MagneticButton.jsx";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
@@ -60,7 +59,6 @@ export default function Hero() {
           </motion.p>
 
           <motion.div className="hero-actions" variants={itemVariants}>
-            <MagneticButton>
               <Link
                 to="projects"
                 smooth={true}
@@ -70,9 +68,7 @@ export default function Hero() {
               >
                 View Projects
               </Link>
-            </MagneticButton>
 
-            <MagneticButton>
               <Link
                 to="contact"
                 smooth={true}
@@ -82,7 +78,6 @@ export default function Hero() {
               >
                 Get in Touch
               </Link>
-            </MagneticButton>
           </motion.div>
         </motion.div>
 
