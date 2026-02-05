@@ -14,66 +14,91 @@
   background-image:
     linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.04) 1px,
+      rgba(255, 255, 255, 0.05) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.04) 1px,
+      rgba(255, 255, 255, 0.05) 1px,
       transparent 1px
     );
   background-size: 60px 60px;
-  opacity: 0.15;
+  opacity: 0.18;
 }
 
-/* Dark theme grid tweak */
-[data-theme="dark"] .grid-layer {
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.03) 1px,
-      transparent 1px
-    );
-}
-
-/* ---------- NEON FLOW LINES ---------- */
+/* ---------- NEON BASE ---------- */
 .neon-line {
   position: absolute;
-  top: 0;
-  width: 2px;
-  height: 200%;
   background: linear-gradient(
     to bottom,
     transparent,
     var(--accent-primary),
     transparent
   );
-  opacity: 0.35;
   filter: blur(2px);
-  animation: flow 12s linear infinite;
+  opacity: 0.4;
 }
 
-.neon-line-1 {
-  left: 20%;
-  animation-duration: 14s;
+/* ---------- VERTICAL LINES ---------- */
+.neon-line.vertical {
+  top: -50%;
+  width: 2px;
+  height: 200%;
+  animation: flow-vertical 8s linear infinite;
 }
 
-.neon-line-2 {
-  left: 65%;
-  animation-duration: 18s;
+.neon-line.vertical.v1 {
+  left: 18%;
 }
 
-/* ---------- ANIMATION ---------- */
-@keyframes flow {
+.neon-line.vertical.v2 {
+  left: 45%;
+  animation-duration: 6s;
+}
+
+.neon-line.vertical.v3 {
+  left: 72%;
+  animation-duration: 7s;
+}
+
+/* ---------- HORIZONTAL LINES ---------- */
+.neon-line.horizontal {
+  left: -50%;
+  height: 2px;
+  width: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  animation: flow-horizontal 9s linear infinite;
+}
+
+.neon-line.horizontal.h1 {
+  top: 35%;
+}
+
+.neon-line.horizontal.h2 {
+  top: 65%;
+  animation-duration: 7s;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes flow-vertical {
   from {
     transform: translateY(-50%);
   }
   to {
     transform: translateY(50%);
+  }
+}
+
+@keyframes flow-horizontal {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(50%);
   }
 }
