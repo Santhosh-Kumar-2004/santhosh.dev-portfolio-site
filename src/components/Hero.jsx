@@ -1,5 +1,6 @@
 import "../styles/Hero.css";
 import { Link } from "react-scroll";
+import HeroCard from "./HeroCard";
 
 export default function Hero() {
   return (
@@ -45,6 +46,7 @@ export default function Hero() {
           >
             Get in Touch
           </Link>
+          <HeroCard />
         </div>
       </div>
     </section>

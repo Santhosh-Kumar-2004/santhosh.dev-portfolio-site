@@ -36,7 +36,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 1rem;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 
 /* Main Title - Space Grotesk */
@@ -106,6 +106,7 @@
   background-color: var(--accent-hover);
   transform: translateY(-3px);
   box-shadow: 0 10px 20px var(--shadow-color);
+  color: white;
 }
 
 .hero-btn-secondary {
