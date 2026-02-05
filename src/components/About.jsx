@@ -19,7 +19,7 @@ export default function About() {
     const targets = {
       experience: 1,
       projects: 20,
-      commits: 4500, // 🔥 Big personal metric
+      commits: 4500, 
     };
 
     const duration = 1500;

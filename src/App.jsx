@@ -28,8 +28,3 @@ function App() {
 }
 
 export default App;
-
-{/* <section id="home">...</section>
-<section id="projects">...</section>
-<section id="about">...</section>
-<section id="contact">...</section> */}
