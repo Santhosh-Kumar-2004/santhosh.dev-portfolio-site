@@ -143,3 +143,37 @@
     gap: 1rem;
   }
 }
+
+
+.hero-id-card {
+  width: 260px;
+  height: 340px;
+  border-radius: 18px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  cursor: grab;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  user-select: none;
+}
+
+.id-card-inner {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.id-card-inner h3 {
+  font-family: var(--font-heading);
+  margin: 0.6rem 0;
+}
+
+.id-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
