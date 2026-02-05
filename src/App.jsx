@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import DraggableID from "./components/DraggableID";
+import ScrollProgress from "./components/ScrollProgress";
 // import About from "./components/About";
 // import Skills from "./components/Skills";
 // import Projects from "./components/Projects";
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
       <DraggableID />
+      <ScrollProgress />
       <Navbar />
       <Hero />
       {/* <About /> */}
