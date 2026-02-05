@@ -2,16 +2,53 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px;
-  width: 100%;
-  z-index: 9999;
-
-  /* Uses your theme variables */
+  right: 0;
+  height: 4px;
+  background: var(--accent-primary);
+  /* Gradient makes it look like it's moving */
   background: linear-gradient(
-    90deg,
-    var(--accent-primary),
-    var(--accent-hover)
+    to right,
+    transparent,
+    var(--accent-primary) 50%,
+    var(--accent-hover) 100%
   );
+  transform-origin: 0%;
+  z-index: 2000; /* Above everything including the Navbar */
+  border-radius: 0 2px 2px 0;
+}
 
-  transform-origin: left;
+/* The "Glow" effect that follows the bar */
+.scroll-progress-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-primary);
+  filter: blur(8px);
+  opacity: 0.6;
+  transform-origin: 0%;
+  z-index: 1999;
+  pointer-events: none;
+}
+
+/* Light Mode Specific Adjustments */
+[data-theme='light'] .scroll-progress-bar {
+  background: linear-gradient(
+    to right,
+    #ff4d4d, 
+    var(--accent-primary)
+  );
+  height: 3px;
+  opacity: 0.9;
+}
+
+[data-theme='light'] .scroll-progress-glow {
+  opacity: 0.3;
+  filter: blur(4px);
+}
+
+/* Dark Mode: Make the Red pop more */
+[data-theme='dark'] .scroll-progress-bar {
+  box-shadow: 0 0 10px var(--accent-primary);
 }
