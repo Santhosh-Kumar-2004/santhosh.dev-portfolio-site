@@ -2,9 +2,10 @@
    BASE STYLES & DESKTOP
 ========================= */
 .id-fixed-wrapper {
-  position: fixed;
+  /* Changed from fixed to absolute so it scrolls with the page */
+  position: absolute; 
   top: 0;
-  right: 18%; /* Positioned in the empty right-half of your hero grid */
+  right: 18%; 
   z-index: 950;
   display: flex;
   flex-direction: column;
@@ -46,9 +47,10 @@
   cursor: grab;
   width: 280px; 
   height: 400px;
-  margin-top: 250px; /* Hanging length */
+  margin-top: 250px; 
   filter: drop-shadow(0 40px 60px var(--shadow-color));
   transition: width 0.3s ease, height 0.3s ease;
+  z-index: 900;
 }
 
 .id-card-body {
@@ -113,7 +115,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Keeps name/role at bottom */
+  justify-content: flex-end; 
 }
 
 .id-name {
@@ -146,7 +148,6 @@
    RESPONSIVENESS
 ========================= */
 
-/* Tablets / Small Laptops */
 @media (max-width: 1200px) {
   .id-fixed-wrapper {
     right: 10%;
@@ -158,18 +159,17 @@
   .id-name { font-size: 1.8rem; }
 }
 
-/* Small Tablets / Large Phones (The "Stack" point) */
 @media (max-width: 968px) {
   .id-fixed-wrapper {
     right: 50%;
-    transform: translateX(50%); /* Centered horizontally */
+    transform: translateX(50%); 
     top: 0;
   }
 
   .id-card-outer {
     width: 220px;
     height: 320px;
-    margin-top: 100px; /* Shorter hang so it doesn't cover the text below it */
+    margin-top: 100px; 
   }
 
   .id-name { font-size: 1.5rem; }
@@ -180,7 +180,6 @@
   }
 }
 
-/* Small Phones */
 @media (max-width: 480px) {
   .id-card-outer {
     width: 180px;
