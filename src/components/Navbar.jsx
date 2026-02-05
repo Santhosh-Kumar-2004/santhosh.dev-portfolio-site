@@ -2,19 +2,22 @@ import "../styles/Navbar.css";
 
 export default function Navbar() {
   return (
-    <header className="navbar surface">
-      <div className="navbar-inner">
+    <header className="navbar-container">
+      <nav className="navbar-floating">
         <div className="navbar-logo">
-          Santhosh
+          Santhosh<span>.</span>
         </div>
 
-        <nav className="navbar-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
+        <div className="navbar-links">
+          <a href="#home" className="nav-link">Home</a>
+          <a href="#projects" className="nav-link">Projects</a>
+          <a href="#about" className="nav-link">About Me</a>
+        </div>
+
+        <a href="#contact" className="nav-cta">
+          Reach Me
+        </a>
+      </nav>
     </header>
   );
 }
