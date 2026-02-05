@@ -25,14 +25,31 @@ export default function Navbar() {
 
         <div className={`navbar-menu-wrapper ${isOpen ? "active" : ""}`}>
           <div className="navbar-links">
-            <Link to="home" smooth={true} duration={600} spy={true} offset={-100} className="nav-link" activeClass="active" onClick={closeMenu}>
-              Home
+            <Link 
+              to="home" 
+              smooth={true} 
+              offset={-100} 
+              className="nav-link" activeClass="active" 
+              onClick={closeMenu}>
+                Home
             </Link>
-            <Link to="projects" smooth={true} duration={600} spy={true} offset={-80} className="nav-link" activeClass="active" onClick={closeMenu}>
-              Projects
+            <Link 
+              to="projects" 
+              smooth={true} 
+              offset={-80} 
+              className="nav-link" 
+              activeClass="active" 
+              onClick={closeMenu}>
+                Projects
             </Link>
-            <Link to="about" smooth={true} duration={600} spy={true} offset={-80} className="nav-link" activeClass="active" onClick={closeMenu}>
-              About
+            <Link 
+              to="about" 
+              smooth={true} 
+              offset={-80} 
+              className="nav-link" 
+              activeClass="active" 
+              onClick={closeMenu}>
+                About
             </Link>
           </div>
           
@@ -40,7 +57,8 @@ export default function Navbar() {
           <ThemeToggle />
         </div>
 
-        <Link to="contact" smooth={true} duration={600} spy={true} offset={-80} className="nav-cta" activeClass="cta-active" onClick={closeMenu}>
+        <Link 
+          to="contact" smooth={true} duration={600} spy={true} offset={-80} className="nav-cta" activeClass="cta-active" onClick={closeMenu}>
           Reach Me
         </Link>
       </nav>

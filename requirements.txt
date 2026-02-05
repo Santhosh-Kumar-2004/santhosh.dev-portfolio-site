@@ -1,0 +1,4 @@
+react
+react-icons
+react-scroll-parallax
+framer-motion
