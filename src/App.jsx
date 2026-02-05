@@ -6,7 +6,7 @@ import About from "./components/About";
 import CustomCursor from "./components/CustomCursor";
 import Background from "./components/Background";
 import Skills from "./components/Skills";
-// import Projects from "./components/Projects";
+import Projects from "./components/Projects";
 // import Contact from "./components/Contact";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       <Hero />
       <About />
       <Skills />
-      {/* <Projects /> */}
+      <Projects />
       {/* <Contact /> */}
     </>
   );
