@@ -1,5 +1,6 @@
 import "../styles/Navbar.css";
 import ThemeToggle from "./ThemeToggle";
+import { Link } from "react-scroll";
 
 export default function Navbar() {
   return (
@@ -10,15 +11,54 @@ export default function Navbar() {
         </div>
 
         <div className="navbar-links">
-          <a href="#home" className="nav-link">Home</a>
-          <a href="#projects" className="nav-link">Projects</a>
-          <a href="#about" className="nav-link">About Me</a>
+          <Link
+            to="home"
+            smooth={true}
+            duration={600}
+            spy={true}
+            offset={-80}
+            className="nav-link"
+            activeClass="active"
+          >
+            Home
+          </Link>
+
+          <Link
+            to="projects"
+            smooth={true}
+            duration={600}
+            spy={true}
+            offset={-80}
+            className="nav-link"
+            activeClass="active"
+          >
+            Projects
+          </Link>
+
+          <Link
+            to="about"
+            smooth={true}
+            duration={600}
+            spy={true}
+            offset={-80}
+            className="nav-link"
+            activeClass="active"
+          >
+            About Me
+          </Link>
+
           <ThemeToggle />
         </div>
 
-        <a href="#contact" className="nav-cta">
+        <Link
+          to="contact"
+          smooth={true}
+          duration={600}
+          offset={-80}
+          className="nav-cta"
+        >
           Reach Me
-        </a>
+        </Link>
       </nav>
     </header>
   );
