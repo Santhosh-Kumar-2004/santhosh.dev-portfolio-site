@@ -34,15 +34,15 @@ export default function About() {
       setCounts({
         experience: Math.min(
           Math.floor(targets.experience * progress),
-          targets.experience
+          targets.experience,
         ),
         projects: Math.min(
           Math.floor(targets.projects * progress),
-          targets.projects
+          targets.projects,
         ),
         commits: Math.min(
           Math.floor(targets.commits * progress),
-          targets.commits
+          targets.commits,
         ),
       });
 
@@ -52,10 +52,36 @@ export default function About() {
     return () => clearInterval(timer);
   }, [isInView]);
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const sideVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
   return (
     <section id="about" className="about-section" ref={sectionRef}>
       <div className="section-inner about-wrapper">
-        
         {/* Left Side: Text & Content */}
         <div className="about-main-content">
           <header className="about-header">
@@ -111,10 +137,7 @@ export default function About() {
               <p>Code Commits on GitHub</p>
             </div>
           </div>
-
-          
         </div>
-
       </div>
     </section>
   );
