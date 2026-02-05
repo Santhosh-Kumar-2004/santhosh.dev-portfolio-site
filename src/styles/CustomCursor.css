@@ -61,7 +61,7 @@ html, body, * {
 
 /* When hovering over your Draggable ID Card */
 .custom-cursor-wrapper.grab .cursor-symbol {
-  transform: rotate(-15deg) translateY(-5px);
+  transform: rotate(-35deg) translateY(-5px);
   letter-spacing: 2px;
 }
 
