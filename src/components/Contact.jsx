@@ -7,7 +7,8 @@ import "../styles/Contact.css";
 export default function Contact() {
   const [status, setStatus] = useState("");
 
-  const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
+  const GOOGLE_FORM_ACTION_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfKqMgrNd88UFNobr2AnBAaLJmd59X5oN0elc8ePP4oid5ruw/formResponse";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
