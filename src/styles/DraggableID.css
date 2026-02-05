@@ -1,7 +1,10 @@
+/* =========================
+   BASE STYLES & DESKTOP
+========================= */
 .id-fixed-wrapper {
   position: fixed;
   top: 0;
-  right: 18%; /* Keeps it center-right */
+  right: 18%; /* Positioned in the empty right-half of your hero grid */
   z-index: 950;
   display: flex;
   flex-direction: column;
@@ -11,7 +14,7 @@
 
 .lanyard-anchor-point {
   width: 14px;
-  height: 10px;
+  height: 14px;
   background: #000;
   border-radius: 50%;
   position: absolute;
@@ -19,7 +22,7 @@
 }
 
 .lanyard-string-line {
-  width: 10px; /* Slightly thicker lanyard for a bigger card */
+  width: 5px;
   background: var(--accent-primary);
   box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.4);
   position: relative;
@@ -37,14 +40,15 @@
   border-radius: 3px;
 }
 
+/* BIG DESKTOP CARD */
 .id-card-outer {
   pointer-events: auto;
   cursor: grab;
-  /* Card is now bigger and hangs lower */
   width: 280px; 
   height: 400px;
-  margin-top: 250px; /* Pushes it down closer to the 50% screen mark */
+  margin-top: 250px; /* Hanging length */
   filter: drop-shadow(0 40px 60px var(--shadow-color));
+  transition: width 0.3s ease, height 0.3s ease;
 }
 
 .id-card-body {
@@ -106,30 +110,15 @@
   position: relative;
   z-index: 2;
   height: 100%;
-  padding: 2rem; /* More padding for a bigger card */
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.id-header-meta {
-  display: flex;
-  justify-content: flex-end; /* Puts hologram on the right */
-  margin-top: 25px;
-}
-
-.hologram-seal {
-  width: 35px;
-  height: 35px;
-  background: conic-gradient(from 180deg, #ff00cc, #3333ff, #00ffcc, #ff00cc);
-  border-radius: 50%;
-  opacity: 0.5;
-  filter: blur(1px);
+  justify-content: flex-end; /* Keeps name/role at bottom */
 }
 
 .id-name {
   font-family: var(--font-heading);
-  font-size: 2.2rem; /* Larger font for larger card */
+  font-size: 2.2rem;
   color: #fff;
   margin: 0;
   letter-spacing: -0.5px;
@@ -153,11 +142,53 @@
   pointer-events: none;
 }
 
-/* Responsive adjustment for small screens */
-@media (max-width: 768px) {
-  .id-card-outer {
-    width: 200px;
-    height: 300px;
-    margin-top: 150px;
+/* =========================
+   RESPONSIVENESS
+========================= */
+
+/* Tablets / Small Laptops */
+@media (max-width: 1200px) {
+  .id-fixed-wrapper {
+    right: 10%;
   }
+  .id-card-outer {
+    width: 240px;
+    height: 350px;
+  }
+  .id-name { font-size: 1.8rem; }
+}
+
+/* Small Tablets / Large Phones (The "Stack" point) */
+@media (max-width: 968px) {
+  .id-fixed-wrapper {
+    right: 50%;
+    transform: translateX(50%); /* Centered horizontally */
+    top: 0;
+  }
+
+  .id-card-outer {
+    width: 220px;
+    height: 320px;
+    margin-top: 100px; /* Shorter hang so it doesn't cover the text below it */
+  }
+
+  .id-name { font-size: 1.5rem; }
+  .id-role { font-size: 0.75rem; }
+  
+  .lanyard-string-line {
+      width: 4px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .id-card-outer {
+    width: 180px;
+    height: 260px;
+    margin-top: 80px;
+  }
+  .id-card-content {
+      padding: 1.2rem;
+  }
+  .id-name { font-size: 1.2rem; }
 }
