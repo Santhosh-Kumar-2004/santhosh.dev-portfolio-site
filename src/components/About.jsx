@@ -83,30 +83,41 @@ export default function About() {
     <section id="about" className="about-section" ref={sectionRef}>
       <div className="section-inner about-wrapper">
         {/* Left Side: Text & Content */}
-        <div className="about-main-content">
+        <motion.div
+          className="about-main-content"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <header className="about-header">
-            <span className="section-subtitle">Discovery</span>
-            <h2 className="section-title">A Bit About Me</h2>
+            <motion.span className="section-subtitle" variants={itemVariants}>
+              Discovery
+            </motion.span>
+
+            <motion.h2 className="section-title" variants={itemVariants}>
+              A Bit About Me
+            </motion.h2>
           </header>
 
           <div className="about-text">
-            <p>
+            <motion.p variants={itemVariants}>
               I’m a Full-Stack Developer driven by the intersection of{" "}
               <strong>clean aesthetics</strong> and
               <strong> robust engineering</strong>. My journey started with a
               curiosity for how things work on the web, which evolved into a
               passion for building scalable applications that solve real-world
               problems.
-            </p>
+            </motion.p>
 
-            <p>
+            <motion.p variants={itemVariants}>
               I don’t just write code; I design systems. Whether it's crafting a
               pixel-perfect UI or structuring application logic, I focus on
               performance, maintainability, and user experience.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="about-info-box">
+          <motion.div className="about-info-box" variants={itemVariants}>
             <div className="info-item">
               <span className="info-label">Location</span>
               <span className="info-value">India</span>
@@ -116,11 +127,17 @@ export default function About() {
               <span className="info-label">Availability</span>
               <span className="info-value text-highlight">Open to Work</span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Side: Stats & Details */}
-        <div className="about-side-content">
+        <motion.div
+          className="about-side-content"
+          variants={sideVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <div className="stats-grid">
             <div className="stat-card">
               <h3>{counts.experience}+</h3>
@@ -137,7 +154,7 @@ export default function About() {
               <p>Code Commits on GitHub</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
