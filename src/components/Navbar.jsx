@@ -1,4 +1,5 @@
 import "../styles/Navbar.css";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   return (
@@ -12,6 +13,7 @@ export default function Navbar() {
           <a href="#home" className="nav-link">Home</a>
           <a href="#projects" className="nav-link">Projects</a>
           <a href="#about" className="nav-link">About Me</a>
+          <ThemeToggle />
         </div>
 
         <a href="#contact" className="nav-cta">
