@@ -1,124 +1,137 @@
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 import {
-  FaPython,
-  FaJs,
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaNodeJs,
-  FaDatabase,
-  FaGitAlt,
-  FaDocker,
+  FaPython, FaJs, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaDocker,
 } from "react-icons/fa";
-
 import {
-  SiFastapi,
-  SiMysql,
-  SiMongodb,
-  SiPostman,
-  SiJupyter,
-  SiVisualstudiocode,
-  SiPandas,
-  SiNumpy,
-  SiScikitlearn,
-  SiOpenai,
+  SiFastapi, SiMysql, SiMongodb, SiPostman, SiJupyter, SiVisualstudiocode, SiPandas, SiNumpy, SiScikitlearn, SiOpenai,
 } from "react-icons/si";
-
 import "../styles/Skills.css";
 
 export default function Skills() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100 }
+    }
+  };
+
+  const categories = [
+    {
+      title: "Languages",
+      skills: [
+        { name: "Python", icon: <FaPython /> },
+        { name: "JavaScript", icon: <FaJs /> },
+        { name: "SQL", icon: <FaDatabase /> },
+        { name: "HTML5", icon: <FaHtml5 /> },
+        { name: "CSS3", icon: <FaCss3Alt /> },
+      ]
+    },
+    {
+      title: "Frontend",
+      skills: [
+        { name: "React", icon: <FaReact /> },
+        { name: "Vite", icon: <FaJs /> },
+        { name: "Responsive UI", icon: <FaCss3Alt /> },
+        { name: "Accessibility", icon: <FaHtml5 /> },
+      ]
+    },
+    {
+      title: "Backend & APIs",
+      skills: [
+        { name: "FastAPI", icon: <SiFastapi /> },
+        { name: "Node.js", icon: <FaNodeJs /> },
+        { name: "Postman", icon: <SiPostman /> },
+        { name: "REST APIs", icon: <FaDatabase /> },
+      ]
+    },
+    {
+      title: "Databases",
+      skills: [
+        { name: "MySQL", icon: <SiMysql /> },
+        { name: "MongoDB", icon: <SiMongodb /> },
+        { name: "PostgreSQL", icon: <FaDatabase /> },
+        { name: "DBeaver", icon: <FaDatabase /> },
+      ]
+    },
+    {
+      title: "Data & Analytics",
+      skills: [
+        { name: "Pandas", icon: <SiPandas /> },
+        { name: "NumPy", icon: <SiNumpy /> },
+        { name: "Scikit-learn", icon: <SiScikitlearn /> },
+        { name: "Jupyter", icon: <SiJupyter /> },
+      ]
+    },
+    {
+      title: "Tools & Workflow",
+      skills: [
+        { name: "VS Code", icon: <SiVisualstudiocode /> },
+        { name: "Git", icon: <FaGitAlt /> },
+        { name: "Docker", icon: <FaDocker /> },
+        { name: "AI Tools", icon: <SiOpenai /> },
+      ]
+    }
+  ];
+
   return (
     <section id="skills" className="skills-section">
       <div className="section-inner skills-wrapper">
-        {/* Header */}
-        <header className="skills-header">
+        <motion.header 
+          className="skills-header"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+        >
           <span className="section-subtitle">Expertise</span>
           <h2 className="section-title">My Tech Stack</h2>
-          <p className="skills-description">
-            Technologies and tools I actively use to design, build, and
-            experiment with modern software solutions.
-          </p>
-        </header>
+          <div className="header-line"></div>
+        </motion.header>
 
-        {/* Skills Grid */}
-        <div className="skills-grid">
-          {/* Languages */}
-          <div className="skill-card">
-            <h3>💻 Languages</h3>
-            <div className="skill-list">
-              <span><FaPython /> Python</span>
-              <span><FaJs /> JavaScript</span>
-              <span><FaDatabase /> SQL</span>
-              <span><FaHtml5 /> HTML5</span>
-              <span><FaCss3Alt /> CSS3</span>
-            </div>
-          </div>
+        <motion.div 
+          className="skills-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {categories.map((cat, idx) => (
+            <motion.div key={idx} className="skill-card" variants={cardVariants}>
+              <div className="card-indicator"></div>
+              <h3>{cat.title}</h3>
+              <div className="skill-list">
+                {cat.skills.map((skill, sIdx) => (
+                  <span key={sIdx}>
+                    <i className="skill-icon">{skill.icon}</i>
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
 
-          {/* Frontend */}
-          <div className="skill-card">
-            <h3>🎨 Frontend</h3>
-            <div className="skill-list">
-              <span><FaReact /> React</span>
-              <span><FaJs /> Vite</span>
-              <span><FaCss3Alt /> Responsive UI</span>
-              <span><FaHtml5 /> Accessibility</span>
-            </div>
-          </div>
-
-          {/* Backend & APIs */}
-          <div className="skill-card">
-            <h3>⚙️ Backend & APIs</h3>
-            <div className="skill-list">
-              <span><SiFastapi /> FastAPI</span>
-              <span><FaNodeJs /> Node.js</span>
-              <span><SiPostman /> Postman</span>
-              <span><FaDatabase /> REST APIs</span>
-            </div>
-          </div>
-
-          {/* Databases */}
-          <div className="skill-card">
-            <h3>🗄️ Databases</h3>
-            <div className="skill-list">
-              <span><SiMysql /> MySQL</span>
-              <span><SiMongodb /> MongoDB</span>
-              <span><FaDatabase /> PostgreSQL</span>
-              <span><FaDatabase /> DBeaver</span>
-            </div>
-          </div>
-
-          {/* Data & Analytics */}
-          <div className="skill-card">
-            <h3>📊 Data & Analytics</h3>
-            <div className="skill-list">
-              <span><SiPandas /> Pandas</span>
-              <span><SiNumpy /> NumPy</span>
-              <span><SiScikitlearn /> Scikit-learn</span>
-              <span><SiJupyter /> Jupyter</span>
-            </div>
-          </div>
-
-          {/* Tools & Workflow */}
-          <div className="skill-card">
-            <h3>🧰 Tools & Workflow</h3>
-            <div className="skill-list">
-              <span><SiVisualstudiocode /> VS Code</span>
-              <span><FaGitAlt /> Git</span>
-              <span><FaDocker /> Docker</span>
-              <span><SiOpenai /> AI Tools</span>
-            </div>
-          </div>
-
-          {/* Interests */}
-          <div className="skill-card highlight">
-            <h3>🧠 Areas of Interest</h3>
-            <div className="skill-list">
-              <span>Data Analytics</span>
-              <span>Data Science</span>
-              <span>Machine Learning</span>
-              <span>Generative AI</span>
-            </div>
-          </div>
-        </div>
+          {/* Special Interest Card */}
+          <motion.div className="skill-card highlight" variants={cardVariants}>
+             <div className="card-indicator"></div>
+             <h3>Future Focus</h3>
+             <div className="skill-list">
+                <span>Data Science</span>
+                <span>Machine Learning</span>
+                <span>Generative AI</span>
+                <span>Neural Networks</span>
+             </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
