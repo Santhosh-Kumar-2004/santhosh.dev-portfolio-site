@@ -178,3 +178,13 @@ section {
 :target {
   scroll-margin-top: 80px;
 }
+
+
+
+/* Scrollbar styles */
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--bg-main);
+}
