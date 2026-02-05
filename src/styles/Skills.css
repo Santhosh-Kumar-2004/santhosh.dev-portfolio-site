@@ -99,13 +99,83 @@
   border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
 }
 
-/* RESPONSIVENESS */
+@media (max-width: 1250px) {
+   .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+   .skills-section {
+    margin-left: 2rem;
+    margin-right: 2rem;
+   }
+}
+/* =========================
+   RESPONSIVENESS – TABLET
+========================= */
+@media (max-width: 1024px) {
+  .skills-section {
+    padding: 100px 40px; /* top/bottom + left/right */
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+
+  .skill-card {
+    padding: 2.2rem 1.8rem;
+  }
+}
+
+
+/* =========================
+   RESPONSIVENESS – MOBILE
+========================= */
 @media (max-width: 768px) {
+  .skills-section {
+    padding: 80px 20px; /* mobile side margins */
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
+
+  .skills-header {
+    max-width: 100%;
+  }
+
+  .skill-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .skill-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .skill-list span {
+    font-size: 0.85rem;
+    padding: 7px 14px;
+  }
+}
+
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 480px) {
   .skills-section {
-    padding: 80px 0;
+    padding: 70px 16px;
+  }
+
+  .skill-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .skill-list {
+    gap: 10px;
+  }
+
+  .skill-list span {
+    padding: 6px 12px;
   }
 }
