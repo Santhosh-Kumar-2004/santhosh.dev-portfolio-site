@@ -114,8 +114,101 @@
   color: var(--accent-primary) !important;
 }
 
-@media (max-width: 768px) {
-  .navbar-links, .v-divider {
-    display: none;
+/* =========================
+   RESPONSIVENESS
+========================= */
+
+/* Desktop Hide Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-primary);
+  transition: all var(--transition-fast);
+  border-radius: 10px;
+}
+
+/* Tablet & Mobile Styles */
+@media (max-width: 850px) {
+  .navbar-floating {
+    max-width: 95%;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    order: 2; /* Move toggle to the right */
+  }
+
+  /* Hamburger to 'X' Animation */
+  .menu-open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-open .bar:nth-child(2) { opacity: 0; }
+  .menu-open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .navbar-menu-wrapper {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    gap: 1.5rem;
+    box-shadow: 0 15px 30px var(--shadow-color);
+    
+    /* Animation for opening */
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all var(--transition-normal);
+  }
+
+  .navbar-menu-wrapper.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .v-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+  }
+
+  .nav-cta {
+    display: none; /* Hide CTA on mobile or move it into the wrapper */
+  }
+
+  .menu-open .nav-cta {
+    display: flex; /* Optional: show inside menu if preferred */
+  }
+}
+
+/* Specific Mobile Tweaks */
+@media (max-width: 480px) {
+  .navbar-logo {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-floating {
+    border-radius: 30px;
   }
 }
