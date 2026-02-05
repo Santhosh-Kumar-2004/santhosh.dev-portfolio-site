@@ -19,6 +19,8 @@ export default function DraggableID() {
   // String height adjusts to vertical drag to maintain the "attached" look
   const stringHeight = useTransform(y, (v) => Math.max(100, 100 + v));
 
+  // String follows card horizontally (but damped)
+  const stringX = useTransform(x, (v) => v * 0.9);
 
   const handleDragEnd = () => {
     // Snap back with "High Mass" physics for a realistic heavy-object swing
@@ -35,8 +37,10 @@ export default function DraggableID() {
           className="lanyard-string-line" 
           style={{ 
             height: stringHeight, 
+            x: stringX,
             rotate: stringRotate,
-            transformOrigin: "top center" 
+            transformOrigin: "top center",
+             
           }} 
         />
       </div>
