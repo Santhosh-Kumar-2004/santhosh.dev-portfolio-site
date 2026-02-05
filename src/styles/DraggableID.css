@@ -1,54 +1,56 @@
 .id-fixed-wrapper {
   position: fixed;
-  top: 0;
-  right: 12%; /* Moved further from the edge toward center-right */
-  z-index: 900;
+  top: -5px; /* Hidden slightly above screen */
+  right: 20%;
+  z-index: 950;
   display: flex;
   flex-direction: column;
   align-items: center;
   pointer-events: none;
 }
 
-/* Realistic Lanyard Thread */
+/* Woven Fabric Texture for Lanyard */
 .lanyard-string {
-  width: 5px;
-  height: 180px; /* Increased length for better hanging look */
-  background: linear-gradient(90deg, #222, #444, #222);
-  border-radius: 2px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  width: 6px;
+  background: #1a1a1a;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.05) 2px, rgba(255,255,255,0.05) 4px);
+  border-radius: 0 0 4px 4px;
+  box-shadow: inset -1px 0 2px rgba(255,255,255,0.1), 2px 5px 10px rgba(0,0,0,0.3);
 }
 
-.lanyard-clip {
-  width: 14px;
-  height: 25px;
-  background: linear-gradient(135deg, #bdc3c7, #2c3e50); /* Metallic look */
-  border-radius: 4px;
-  margin-top: -5px;
-  position: relative;
-  z-index: 2;
+/* Metallic Ring Pivot */
+.lanyard-ring {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #7f8c8d;
+  border-radius: 50%;
+  margin-top: -10px;
+  background: transparent;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  pointer-events: none;
 }
 
 .id-card-outer {
   pointer-events: auto;
   cursor: grab;
-  width: 240px; /* Slightly bigger for better impact */
-  height: 340px;
-  filter: drop-shadow(0 25px 40px var(--shadow-color));
+  width: 260px;
+  height: 380px;
+  margin-top: -5px;
+  /* Dynamic shadow that feels like it's lifting off the page */
+  filter: drop-shadow(0 30px 50px var(--shadow-color));
 }
 
 .id-card-body {
   width: 100%;
   height: 100%;
-  background-color: var(--bg-surface);
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  /* Simulate plastic card thickness/edge */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.05);
 }
 
-/* Full-cover Image */
 .id-full-image {
   position: absolute;
   inset: 0;
@@ -59,96 +61,86 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Grayscale to Color transition effect if you want later */
 }
 
 .image-gradient-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9) 10%, 
-    rgba(0, 0, 0, 0.4) 40%,
-    transparent 100%
-  );
+  background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.7) 30%, transparent 60%);
 }
 
-/* Card UI Content */
 .id-card-content {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   height: 100%;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.5rem;
 }
 
 .id-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
 }
 
 .clip-hole {
-  width: 35px;
-  height: 10px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 12px;
+  background: #000;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.2);
 }
 
-.id-tag {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: #fff;
-  background: var(--accent-primary);
-  padding: 2px 10px;
-  border-radius: 4px;
-  letter-spacing: 1px;
+/* Holographic Security Detail */
+.hologram-seal {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc);
+  border-radius: 50%;
+  opacity: 0.6;
+  mask-image: radial-gradient(circle, white, transparent);
+  -webkit-mask-image: radial-gradient(circle, white, transparent);
 }
 
 .id-footer {
   text-align: left;
 }
 
+.id-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #2ecc71; /* Green "Online" dot */
+  border-radius: 50%;
+  margin-bottom: 5px;
+  box-shadow: 0 0 8px #2ecc71;
+}
+
 .id-name {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
-  color: #ffffff; /* White text looks better on the dark gradient overlay */
+  font-size: 2rem;
+  color: #fff;
   margin: 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .id-role {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--accent-primary);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
-/* The Glossy Reflection */
+/* Realistic Glass/Plastic Reflection */
 .id-glass-glare {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 45%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 55%
-  );
-  z-index: 3;
+  inset: 0;
+  z-index: 10;
+  background: linear-gradient(125deg, rgba(255,255,255,0.15) 0%, transparent 40%, rgba(255,255,255,0.05) 60%, transparent 100%);
   pointer-events: none;
-}
-
-@media (max-width: 768px) {
-  .id-fixed-wrapper {
-    right: 5%;
-    transform: scale(0.7);
-  }
-  .lanyard-string { height: 120px; }
 }
