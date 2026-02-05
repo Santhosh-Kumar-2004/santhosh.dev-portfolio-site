@@ -1,55 +1,42 @@
-# 🚀 Portfolio Website – Development Roadmap
+📍 UPDATED PHASE PLAN (Frontend-Only)
+🔹 PHASE 0 – Planning ✅
 
-## Tech Stack
-- Frontend: Vite + React (JS)
-- Backend: FastAPI
-- Database: PostgreSQL
-- Repo Type: Monorepo
+(done)
 
----
+🔹 PHASE 1 – Frontend Foundation
 
-## PHASE 0 – Planning 
-- Finalize tech stack
-- Decide MVP pages
-- Architecture discussion
-- Repo strategy (monorepo)
+Vite + React setup
 
----
+Folder structure
 
-## PHASE 1 – Project Structure
-- Create GitHub repository
-- Setup monorepo structure
-- Initialize FastAPI backend
-- Initialize Vite frontend
+Routing
 
----
+Layout system
 
-## PHASE 2 – Backend Development
-- PostgreSQL connection
-- Create models (projects, contacts)
-- API endpoints
-- Environment configuration
+🔹 PHASE 2 – Core Pages
 
----
+Home
 
-## PHASE 3 – Frontend Development
-- React routing
-- Pages (Home, About, Projects, Contact)
-- API integration
-- Form submission
+About
 
----
+Projects
 
-## PHASE 4 – UI & UX
-- Responsive layout
-- Clean design
-- Error handling
-- Loading states
+Contact (Google Form)
 
----
+🔹 PHASE 3 – UI & UX Polish
 
-## PHASE 5 – Deployment
-- Deploy backend
-- Deploy frontend
-- Connect cloud database
-- Final testing
+Animations
+
+Theme (dark/light)
+
+Micro-interactions
+
+Responsiveness
+
+🔹 PHASE 4 – GitHub Pages Deployment
+
+Build config
+
+gh-pages setup
+
+Live URL
