@@ -1,7 +1,7 @@
 .id-fixed-wrapper {
   position: fixed;
   top: 0;
-  right: 20%; /* Keeps it center-right */
+  right: 18%; /* Keeps it center-right */
   z-index: 950;
   display: flex;
   flex-direction: column;

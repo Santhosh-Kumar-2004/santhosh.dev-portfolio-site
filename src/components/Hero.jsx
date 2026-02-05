@@ -4,48 +4,53 @@ import { Link } from "react-scroll";
 export default function Hero() {
   return (
     <section id="home" className="hero-section" aria-label="Hero section">
-      {/* Decorative background element */}
       <div className="hero-visual-bg"></div>
       
       <div className="section-inner hero-container">
-        <p className="hero-eyebrow">Hi, I’m</p>
+        <div className="hero-content">
+          <p className="hero-eyebrow">Hi, I’m</p>
 
-        <h1 className="hero-title">
-          <span>Santhosh</span>
-        </h1>
+          {/* This name will hide on mobile because it's already on the ID card */}
+          <h1 className="hero-title mobile-hide">
+            <span>Santhosh Kumar V</span>
+          </h1>
 
-        <h2 className="hero-subtitle">
-          Full-Stack Developer focused on building
-          <span className="text-highlight"> clean, scalable, and user-centric</span> web applications.
-        </h2>
+          <h2 className="hero-subtitle">
+            Full-Stack Developer focused on building
+            <span className="text-highlight"> clean, scalable, and user-centric</span> web applications.
+          </h2>
 
-        <p className="hero-description">
-          I design and develop modern web experiences using React,
-          JavaScript, and backend-friendly architectures — with
-          a strong emphasis on performance and maintainability.
-        </p>
+          <p className="hero-description">
+            I design and develop modern web experiences using React,
+            JavaScript, and backend-friendly architectures — with
+            a strong emphasis on performance and maintainability.
+          </p>
 
-        <div className="hero-actions">
-          <Link
-            to="projects"
-            smooth={true}
-            duration={600}
-            offset={-80}
-            className="hero-btn-primary"
-          >
-            View Projects
-          </Link>
+          <div className="hero-actions">
+            <Link
+              to="projects"
+              smooth={true}
+              duration={600}
+              offset={-80}
+              className="hero-btn-primary"
+            >
+              View Projects
+            </Link>
 
-          <Link
-            to="contact"
-            smooth={true}
-            duration={600}
-            offset={-80}
-            className="hero-btn-secondary"
-          >
-            Get in Touch
-          </Link>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={600}
+              offset={-80}
+              className="hero-btn-secondary"
+            >
+              Get in Touch
+            </Link>
+          </div>
         </div>
+        
+        {/* The right side is kept empty for the ID card to hang into on Desktop */}
+        <div className="hero-spacer"></div>
       </div>
     </section>
   );
