@@ -133,12 +133,111 @@
   text-transform: uppercase;
 }
 
-/* RESPONSIVENESS */
-@media (max-width: 768px) {
-  .project-card {
-    width: 300px;
+/* =========================
+   GLOBAL SECTION SPACING
+========================= */
+@media (min-width: 1250px) {
+  .projects-section {
+    margin-right: 2rem;
+    margin-left: 2rem;
   }
+}
+
+/* =========================
+   RESPONSIVENESS – LARGE TABLETS / SMALL LAPTOPS
+   (Custom breakpoint: 1250px)
+========================= */
+@media (max-width: 1250px) {
+  .project-card {
+    width: 340px;
+  }
+
+  .project-title {
+    font-size: 1.4rem;
+  }
+
   .carousel-track {
-    animation-duration: 20s; /* Faster scroll on mobile to feel snappy */
+    gap: 1.75rem;
+  }
+}
+
+
+/* =========================
+   RESPONSIVENESS – TABLET
+========================= */
+@media (max-width: 900px) {
+  .project-card {
+    width: 280px;
+  }
+
+  .project-card-inner {
+    padding: 1.75rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+  }
+
+  .carousel-track {
+    animation-duration: 25s;
+  }
+}
+
+
+/* =========================
+   RESPONSIVENESS – MOBILE
+========================= */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 80px 1.5rem;
+  }
+
+  .projects-header {
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-card {
+    width: 250px;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .project-links a {
+    font-size: 1.1rem;
+  }
+
+  .carousel-track {
+    animation-duration: 20s;
+  }
+}
+
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 70px 1rem;
+  }
+
+  .project-card {
+    width: 230px;
+  }
+
+  .project-card-inner {
+    padding: 1.5rem;
+  }
+
+  .project-tech li {
+    font-size: 0.7rem;
+    padding: 4px 10px;
   }
 }
