@@ -1,52 +1,44 @@
-// eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { Parallax } from "react-scroll-parallax";
-// import { useState } from "react";
+import idCardImage from "../assets/Santhosh.png";
 
 export default function HeroCard() {
-  // Drag values
+  // Motion values
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Rotate based on drag
-  const rotateX = useTransform(y, [-100, 100], [12, -12]);
-  const rotateY = useTransform(x, [-100, 100], [-12, 12]);
-
-  // Shadow reacts to drag
-  const boxShadow = useTransform(
-    [x, y],
-    ([latestX, latestY]) =>
-      `${-latestX / 5}px ${-latestY / 5}px 40px rgba(220, 38, 38, 0.35)`
-  );
+  // Rotate like a hanging pendulum
+  const rotate = useTransform(x, [-120, 120], [-12, 12]);
 
   return (
-    <Parallax speed={-10}>
+    <div className="hero-id-wrapper">
+      {/* Hanging string */}
+      <div className="id-string" />
+
+      {/* ID Card */}
       <motion.div
+        className="hero-id-card"
         drag
-        dragElastic={0.4}
+        dragElastic={0.6}
         dragMomentum={false}
         style={{
           x,
           y,
-          rotateX,
-          rotateY,
-          boxShadow,
+          rotate,
         }}
-        whileTap={{ cursor: "grabbing" }}
-        animate={{ x: 0, y: 0 }}
+        animate={{ x: 0, y: 0, rotate: 0 }}
         transition={{
           type: "spring",
-          stiffness: 300,
-          damping: 25,
+          stiffness: 180,
+          damping: 18,
         }}
-        className="hero-id-card"
+        whileTap={{ cursor: "grabbing" }}
       >
-        <div className="id-card-inner">
-          <p className="id-eyebrow">Developer ID</p>
-          <h3>Santhosh</h3>
-          <span>Full-Stack Developer</span>
-        </div>
+        <img
+          src={idCardImage}
+          alt="ID Card"
+          draggable={false}
+        />
       </motion.div>
-    </Parallax>
+    </div>
   );
 }
