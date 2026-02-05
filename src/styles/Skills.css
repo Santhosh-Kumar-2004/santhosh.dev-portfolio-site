@@ -84,7 +84,7 @@
 }
 
 .skill-icon {
-  color: var(--accent-primary);
+  color: var(--text-primary);
   display: flex;
   font-size: 1.1rem;
 }

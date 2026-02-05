@@ -4,7 +4,7 @@ import {
   FaPython, FaJs, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaDocker,
 } from "react-icons/fa";
 import {
-  SiFastapi, SiMysql, SiMongodb, SiPostman, SiJupyter, SiVisualstudiocode, SiPandas, SiNumpy, SiScikitlearn, SiOpenai,
+  SiFastapi, SiMysql, SiMongodb, SiPostman, SiJupyter, SiPandas, SiNumpy, SiScikitlearn, SiOpenai,
 } from "react-icons/si";
 import "../styles/Skills.css";
 
@@ -76,7 +76,7 @@ export default function Skills() {
     {
       title: "Tools & Workflow",
       skills: [
-        { name: "VS Code", icon: <SiVisualstudiocode /> },
+        // { name: "VS Code", icon: <SiVisualstudiocode /> },
         { name: "Git", icon: <FaGitAlt /> },
         { name: "Docker", icon: <FaDocker /> },
         { name: "AI Tools", icon: <SiOpenai /> },
@@ -122,14 +122,14 @@ export default function Skills() {
 
           {/* Special Interest Card */}
           <motion.div className="skill-card highlight" variants={cardVariants}>
-             <div className="card-indicator"></div>
+             {/* <div className="card-indicator"></div>
              <h3>Future Focus</h3>
              <div className="skill-list">
                 <span>Data Science</span>
                 <span>Machine Learning</span>
                 <span>Generative AI</span>
                 <span>Neural Networks</span>
-             </div>
+             </div> */}
           </motion.div>
         </motion.div>
       </div>

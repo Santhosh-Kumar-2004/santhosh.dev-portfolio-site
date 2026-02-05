@@ -5,7 +5,7 @@ import ScrollProgress from "./components/ScrollProgress";
 import About from "./components/About";
 import CustomCursor from "./components/CustomCursor";
 import Background from "./components/Background";
-// import Skills from "./components/Skills";
+import Skills from "./components/Skills";
 // import Projects from "./components/Projects";
 // import Contact from "./components/Contact";
 
@@ -21,7 +21,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      {/* <Skills /> */}
+      <Skills />
       {/* <Projects /> */}
       {/* <Contact /> */}
     </>
