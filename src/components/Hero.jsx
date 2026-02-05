@@ -1,5 +1,6 @@
 import "../styles/Hero.css";
 import { Link } from "react-scroll";
+import MagneticButton from "./MagneticButton.jsx";
 
 export default function Hero() {
   return (
@@ -27,7 +28,8 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <Link
+            <MagneticButton>
+              <Link
               to="projects"
               smooth={true}
               duration={600}
@@ -36,7 +38,9 @@ export default function Hero() {
             >
               View Projects
             </Link>
+            </MagneticButton>
 
+            <MagneticButton>
             <Link
               to="contact"
               smooth={true}
@@ -46,6 +50,7 @@ export default function Hero() {
             >
               Get in Touch
             </Link>
+            </MagneticButton>
           </div>
         </div>
         
