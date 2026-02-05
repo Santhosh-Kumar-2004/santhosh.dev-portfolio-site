@@ -183,8 +183,39 @@ section {
 
 /* Scrollbar styles */
 
+/* --- Modern Scrollbar Customization --- */
 
+/* Firefox Fallback */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--accent-primary) var(--bg-main);
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the entire scrollbar */
+  height: 10px; /* Height for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+  border-left: 1px solid var(--border-color); /* Subtle line to separate from content */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted); /* Subdued color by default */
+  background-clip: padding-box;
+  border: 2px solid transparent; /* Creates "space" around the thumb */
+  border-radius: 10px; /* Rounded pill shape */
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary); /* Turns your signature red on hover */
+  border: 1px solid transparent;
+}
+
+/* Corner where horizontal and vertical scrollbars meet */
+::-webkit-scrollbar-corner {
+  background: var(--bg-main);
 }
