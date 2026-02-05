@@ -145,31 +145,124 @@
   font-weight: 600;
 }
 
-/* =========================
-   RESPONSIVENESS
-========================= */
+@media (max-width: 1250px) {
 
-@media (max-width: 1024px) {
   .about-wrapper {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 70px;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
-  
+
   .about-side-content {
     position: static;
+    /* flex-direction: row; */
+    gap: 2rem;
+    align-items: center;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* =========================
+   RESPONSIVENESS – TABLET
+========================= */
+@media (max-width: 1024px) {
+  .about-section {
+    padding: 80px 0;
+  }
+
+  .about-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .about-main-content {
+    max-width: 100%;
+  }
+
+  .about-side-content {
+    position: static;
+    flex-direction: row;
+    gap: 2rem;
   }
 
   .stats-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
 }
 
+
+/* =========================
+   RESPONSIVENESS – MOBILE
+========================= */
 @media (max-width: 768px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-side-content {
+    flex-direction: column;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
   }
-  
-  .about-section {
-    padding: 60px 0;
+
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+
+  .about-info-box {
+    padding: 1.25rem;
+  }
+
+  .info-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-value {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 480px) {
+  .section-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .skill-tag {
+    font-size: 0.8rem;
+    padding: 5px 12px;
   }
 }
