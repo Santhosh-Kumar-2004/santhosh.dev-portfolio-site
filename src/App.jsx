@@ -12,10 +12,10 @@ import Background from "./components/Background";
 function App() {
   return (
     <>
+      <Background />
       <DraggableID />
       <ScrollProgress />
       <CustomCursor />
-      <Background />
 
 
       <Navbar />
