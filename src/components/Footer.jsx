@@ -1,4 +1,11 @@
-import { FaGithub, FaLinkedin, FaInstagram, FaMedium, FaBehance, FaArrowUp } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaMedium,
+  FaBehance,
+  FaArrowUp,
+} from "react-icons/fa";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import "../styles/Footer.css";
@@ -10,21 +17,44 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const footerVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const bottomVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
+    },
+  };
+
   return (
     <footer className="footer-section">
       <div className="footer-glow"></div>
-      
+
       <div className="section-inner footer-wrapper">
-        <div className="footer-grid">
-          
+        <motion.div
+          className="footer-grid"
+          variants={footerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {/* 1. Brand & Availability */}
           <div className="footer-column brand-col">
             <h3 className="footer-logo">
               Santhosh<span>.</span>
             </h3>
             <p className="footer-bio">
-              Crafting digital experiences where code meets creativity. 
-              Based in India, working worldwide.
+              Crafting digital experiences where code meets creativity. Based in
+              India, working worldwide.
             </p>
             <div className="availability-tag">
               <span className="pulse-dot"></span>
@@ -67,24 +97,30 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <div className="footer-divider"></div>
 
-        <div className="footer-bottom">
+        <motion.div
+          className="footer-bottom"
+          variants={bottomVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <p className="copyright">
             © {year} Built with React by <span>Santhosh Kumar</span>
           </p>
-          
-          <motion.button 
-            onClick={scrollToTop} 
+
+          <motion.button
+            onClick={scrollToTop}
             className="back-to-top-btn"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             <FaArrowUp />
           </motion.button>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
