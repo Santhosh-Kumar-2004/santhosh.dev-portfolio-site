@@ -1,0 +1,79 @@
+/* ---------- BACKGROUND WRAPPER ---------- */
+.app-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--bg-main);
+  overflow: hidden;
+}
+
+/* ---------- GRID ---------- */
+.grid-layer {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+  background-size: 60px 60px;
+  opacity: 0.15;
+}
+
+/* Dark theme grid tweak */
+[data-theme="dark"] .grid-layer {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    );
+}
+
+/* ---------- NEON FLOW LINES ---------- */
+.neon-line {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 200%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  opacity: 0.35;
+  filter: blur(2px);
+  animation: flow 12s linear infinite;
+}
+
+.neon-line-1 {
+  left: 20%;
+  animation-duration: 14s;
+}
+
+.neon-line-2 {
+  left: 65%;
+  animation-duration: 18s;
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes flow {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(50%);
+  }
+}
