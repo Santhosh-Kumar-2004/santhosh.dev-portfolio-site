@@ -83,7 +83,7 @@ export default function Contact() {
             {/* NAME */}
             <input
               type="text"
-              name="entry.1111111111"   // 🔁 Replace with real entry ID
+              name="entry.2135531276"   // 🔁 Replace with real entry ID
               placeholder="Your Name"
               required
             />
@@ -91,7 +91,7 @@ export default function Contact() {
             {/* EMAIL */}
             <input
               type="email"
-              name="entry.2222222222"   // 🔁 Replace with real entry ID
+              name="entry.249094074"   // 🔁 Replace with real entry ID
               placeholder="Your Email"
               required
             />
@@ -99,13 +99,13 @@ export default function Contact() {
             {/* MOBILE */}
             <input
               type="email"
-              name="entry.2222222222"   // 🔁 Replace with real entry ID
+              name="entry.180404367"   // 🔁 Replace with real entry ID
               placeholder="Your Mobile Number"
             />
 
             {/* MESSAGE */}
             <textarea
-              name="entry.3333333333"   // 🔁 Replace with real entry ID
+              name="entry.1723726827"   // 🔁 Replace with real entry ID
               placeholder="Your Message"
               rows="5"
               required
