@@ -7,40 +7,46 @@ export default function DraggableID() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Card Tilt & Pendulum
-  const rotateZ = useTransform(x, [-200, 200], [-15, 15]);
-  const rotateX = useTransform(y, [-120, 120], [15, -15]);
-  const rotateY = useTransform(x, [-120, 120], [-15, 15]);
+  // 1. CARD DYNAMICS: How the card tilts when moved
+  const rotateZ = useTransform(x, [-200, 200], [-20, 20]);
+  const rotateX = useTransform(y, [-150, 150], [20, -20]);
+  const rotateY = useTransform(x, [-150, 150], [-20, 20]);
 
-  // Lanyard Physics
-  const stringRotate = useTransform(x, [-200, 200], [-10, 10]);
-  const stringHeight = useTransform(y, [-50, 200], [80, 200]);
+  // 2. LANYARD PHYSICS: String follows the card precisely
+  // We calculate the rotation of the string based on horizontal displacement
+  const stringRotate = useTransform(x, [-300, 300], [25, -25]);
+  
+  // String height adjusts to vertical drag to maintain the "attached" look
+  const stringHeight = useTransform(y, (v) => Math.max(100, 100 + v));
+
 
   const handleDragEnd = () => {
-    // Heavier snap-back with a slight bounce (mass: 1.2)
-    animate(x, 0, { type: "spring", stiffness: 100, damping: 12, mass: 1.2 });
-    animate(y, 0, { type: "spring", stiffness: 100, damping: 12, mass: 1.2 });
+    // Snap back with "High Mass" physics for a realistic heavy-object swing
+    const springConfig = { type: "spring", stiffness: 120, damping: 15, mass: 1.5 };
+    animate(x, 0, springConfig);
+    animate(y, 0, springConfig);
   };
 
   return (
     <div className="id-fixed-wrapper">
-      <div className="lanyard-anchor">
+      {/* THE ANCHOR: Fixed point at the top of the screen */}
+      <div className="lanyard-anchor-point">
         <motion.div 
-          className="lanyard-string" 
-          style={{ height: stringHeight, rotate: stringRotate, transformOrigin: "top center" }} 
-        />
-        {/* The metallic ring that connects string to card */}
-        <motion.div 
-          className="lanyard-ring"
-          style={{ x, y, rotate: rotateZ }}
+          className="lanyard-string-line" 
+          style={{ 
+            height: stringHeight, 
+            rotate: stringRotate,
+            transformOrigin: "top center" 
+          }} 
         />
       </div>
 
+      {/* THE CARD: The draggable physical object */}
       <motion.div
         className="id-card-outer"
         drag
         dragMomentum={false}
-        dragElastic={0.6}
+        dragElastic={0.2} // Low elastic makes the string tension feel real
         onDragEnd={handleDragEnd}
         style={{
           x,
@@ -51,28 +57,34 @@ export default function DraggableID() {
           transformOrigin: "top center",
           perspective: 1200,
         }}
-        whileTap={{ cursor: "grabbing", scale: 1.02 }}
+        whileTap={{ cursor: "grabbing" }}
       >
         <div className="id-card-body surface">
+          {/* Card Clip Hook */}
+          <div className="id-card-hook">
+            <div className="hook-ring"></div>
+          </div>
+
           <div className="id-full-image">
             <img src={idCardImage} alt="Santhosh" draggable={false} />
             <div className="image-gradient-overlay" />
           </div>
 
           <div className="id-card-content">
-            <div className="id-header">
-              <div className="clip-hole" />
-              <div className="hologram-seal" /> {/* Realistic detail */}
+            <div className="id-header-meta">
+              <span className="id-serial">#2026-SR-01</span>
+              <div className="hologram-seal" />
             </div>
 
             <div className="id-footer">
-              <span className="id-status-dot"></span>
+              <div className="status-container">
+                <span className="status-dot"></span>
+                <span className="status-text">SYSTEM ACTIVE</span>
+              </div>
               <h3 className="id-name">Santhosh</h3>
               <p className="id-role">Full Stack Developer</p>
             </div>
           </div>
-
-          {/* This layer provides the plastic shine */}
           <div className="id-glass-glare" />
         </div>
       </motion.div>
