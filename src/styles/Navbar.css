@@ -53,10 +53,16 @@
   font-size: 0.9rem;
   font-weight: 500;
   transition: color var(--transition-fast);
+  cursor: pointer;
 }
 
 .nav-link:hover {
   color: var(--accent-primary);
+}
+
+.nav-link.active {
+  color: var(--accent-primary);
+  font-weight: 600;
 }
 
 /* CTA Button */
@@ -74,7 +80,9 @@
 
 .nav-cta:hover {
   background-color: white;
+  color: var(--accent-primary);
   transform: translateY(-2px);
+  cursor: pointer;
 }
 
 /* Mobile Responsive adjustment */
