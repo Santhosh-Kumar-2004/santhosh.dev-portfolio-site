@@ -8,10 +8,10 @@ export default function Projects() {
     {
       title: "Portfolio Website",
       description:
-        "A modern, responsive personal portfolio built with React. Focused on clean UI and smooth scrolling.",
-      tech: ["React", "Vite", "Framer Motion"],
-      github: "https://github.com/yourusername/portfolio",
-      live: "https://yourdomain.com",
+        "A modern, responsive personal portfolio built with React and Vite.js. Focused on clean UI and smooth scrolling.",
+      tech: ["React", "Vite", "Framer Motion", "react-scroll", "react-icons"],
+      github: "https://github.com/Santhosh-Kumar-2004/santhosh.dev-portfolio-site/",
+      live: "https://santhosh-kumar-2004.github.io/santhosh.dev-portfolio-site/",
     },
     {
       title: "Full-Stack Web App",
