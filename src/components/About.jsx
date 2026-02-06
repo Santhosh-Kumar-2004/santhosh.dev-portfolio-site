@@ -98,6 +98,7 @@ export default function About() {
             <motion.h2 className="section-title" variants={itemVariants}>
               A Bit About Me
             </motion.h2>
+            <div className="header-line"></div>
           </header>
 
           <div className="about-text">
@@ -108,6 +109,12 @@ export default function About() {
               curiosity for how things work on the web, which evolved into a
               passion for building scalable applications that solve real-world
               problems.
+            </motion.p>
+
+            <motion.p variants={itemVariants}>
+              I don’t just write code; I design systems. Whether it's crafting a
+              pixel-perfect UI or structuring application logic, I focus on
+              performance, maintainability, and user experience.
             </motion.p>
 
             <motion.p variants={itemVariants}>
