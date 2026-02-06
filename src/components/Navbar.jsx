@@ -42,6 +42,17 @@ export default function Navbar() {
             </Link>
 
             <Link
+              to="about"
+              smooth
+              offset={-80}
+              className="nav-link"
+              activeClass="active"
+              onClick={closeMenu}
+            >
+              About
+            </Link>
+
+            <Link
               to="projects"
               smooth
               offset={-80}
@@ -53,15 +64,16 @@ export default function Navbar() {
             </Link>
 
             <Link
-              to="about"
+              to="skills"
               smooth
               offset={-80}
               className="nav-link"
               activeClass="active"
               onClick={closeMenu}
             >
-              About
+              Skills
             </Link>
+
           </div>
 
           <div className="v-divider" />
