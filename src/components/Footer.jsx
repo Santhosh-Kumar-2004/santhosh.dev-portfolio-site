@@ -49,14 +49,15 @@ export default function Footer() {
     </svg>
   );
 
-  const HeartIcon = ({ size = 20 }) => (
+  const BeatingHeart = ({ size = 20 }) => (
     <svg
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="#e63946"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Heart"
+      className="beating-heart"
+      aria-label="Beating Heart"
     >
       <path d="M12 21s-6.716-4.35-9.33-7.014C.507 11.823.37 8.42 2.757 6.036 5.144 3.65 8.55 3.787 10.713 5.95L12 7.236l1.287-1.286c2.163-2.163 5.57-2.3 7.956.086 2.387 2.384 2.25 5.787.087 7.95C18.716 16.65 12 21 12 21z" />
     </svg>
@@ -151,7 +152,7 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <p className="copyright">
-            © {year} Built with   <HeartIcon />   by <span>Santhosh Kumar</span>
+            © {year} Built with <BeatingHeart size={20} style={{ color: "#ff4d6d" }} />  by <span>Santhosh Kumar</span>
           </p>
 
           <motion.button
