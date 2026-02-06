@@ -59,7 +59,7 @@ export default function Contact() {
           </header>
 
           <p className="contact-intro">
-            Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+            I’m always excited to collaborate on innovative projects or discuss new opportunities. Whether you have a question, want to work together, or just want to say hi, feel free to reach out!
           </p>
 
           <div className="contact-methods">
@@ -73,8 +73,8 @@ export default function Contact() {
             </a>
 
             <div className="social-row">
-              <a href="#" className="social-tag"><FaGithub /> GitHub</a>
-              <a href="#" className="social-tag"><FaLinkedin /> LinkedIn</a>
+              <a href="https://github.com/Santhosh-Kumar-2004" className="social-tag"><FaGithub /> GitHub</a>
+              <a href="https://www.linkedin.com/in/santhoshkumarv12136/" className="social-tag"><FaLinkedin /> LinkedIn</a>
             </div>
           </div>
         </motion.div>
@@ -90,11 +90,11 @@ export default function Contact() {
           
           <form onSubmit={handleSubmit} className="contact-form">
             <motion.div custom={1} variants={inputVariants} initial="hidden" whileInView="visible">
-              <input type="text" name="entry.2135531276" placeholder="Full Name" required />
+              <input type="text" name="entry.2135531276" placeholder="Full Name *" required />
             </motion.div>
 
             <motion.div custom={2} variants={inputVariants} initial="hidden" whileInView="visible">
-              <input type="email" name="entry.249094074" placeholder="Email Address" required />
+              <input type="email" name="entry.249094074" placeholder="Email Address *" required />
             </motion.div>
 
             <motion.div custom={3} variants={inputVariants} initial="hidden" whileInView="visible">
@@ -102,7 +102,7 @@ export default function Contact() {
             </motion.div>
 
             <motion.div custom={4} variants={inputVariants} initial="hidden" whileInView="visible">
-              <textarea name="entry.1723726827" placeholder="Tell me about your project..." rows="4" required />
+              <textarea name="entry.1723726827" placeholder="What Message you have for me... *" rows="4" required />
             </motion.div>
 
             <motion.button 

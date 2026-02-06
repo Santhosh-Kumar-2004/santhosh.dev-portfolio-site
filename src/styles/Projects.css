@@ -35,7 +35,7 @@
   display: flex;
   gap: 2rem;
   width: max-content;
-  animation: scroll-infinite 30s linear infinite;
+  animation: scroll-infinite 20s linear infinite;
 }
 
 /* Slow down on hover/click */
