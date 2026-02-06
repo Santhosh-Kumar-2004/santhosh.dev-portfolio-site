@@ -14,19 +14,43 @@ export default function Projects() {
       live: "https://santhosh-kumar-2004.github.io/santhosh.dev-portfolio-site/",
     },
     {
-      title: "Full-Stack Web App",
+      title: "Full-Stack Auction Platform Web App",
       description:
-        "Scalable web application with a React frontend and API-driven backend using FastAPI.",
-      tech: ["React", "FastAPI", "REST APIs"],
-      github: "https://github.com/yourusername/fullstack-app",
+        "Scalable Auction web application with a React frontend and API-driven backend using FastAPI. SQLlite database for data management, featuring real-time bidding and user authentication.",
+      tech: ["React", "FastAPI", "REST APIs", "SQLite", "multilingual support", "KYC verification", "TOTP-based 2FA"],
+      github: "https://github.com/Santhosh-Kumar-2004/agriport-ai-full-stack-auction-platform",
       live: "",
     },
     {
-      title: "Data Analysis",
+      title: "Python Data Engineering Pipeline",
       description:
-        "Exploratory data analysis project focused on insights from real-world datasets using Python.",
-      tech: ["Python", "Pandas", "Jupyter"],
-      github: "https://github.com/yourusername/data-analysis",
+        "End-to-end data engineering pipelines using Python and YAML configuration. Covers ingestion, validation, transformation, and loading with clean architecture.",
+      tech: ["Python", "Pandas", "Jupyter", "Airflow", "YAML", "PostgreSQL", "ETL", "Data Validation"],
+      github: "https://github.com/Santhosh-Kumar-2004/python-yaml-data-pipelines",
+      live: "",
+    },
+    {
+      title: "Identity Management System with React & FastAPI",
+      description:
+        "A full-stack User Management System built with React, FastAPI, MySQL, and JWT authentication. Includes user registration, login, roles, and secure access control.",
+      tech: ["React", "FastAPI", "MySQL", "JWT", "Authentication", "User Management"],
+      github: "https://github.com/Santhosh-Kumar-2004/identity-management-system-full-stack",
+      live: "",
+    },
+    {
+      title: "AI Scam & Fake News Detection System",
+      description:
+        "Detect scams & fake news using AI, Groq, Llama ML model, React, fast API and more. An user friendly Interface where user can provide inputs as text, image, & even in an voice note, The AI will undersatnd and lets you know detailed information about the Scam.",
+      tech: ["React", "FastAPI", "Ollama", "Best UI/UX Award Winner", "AI model Integration", "Multiple Fake Detection Modalities"],
+      github: "https://github.com/Santhosh-Kumar-2004/FakeAlertAI",
+      live: "",
+    },
+    {
+      title: "Real-Time Face Recognition System",
+      description:
+        "This project features a face recognition system using Python and the DeepFace library. It captures real-time video from a webcam, compares detected faces against a set of known images, and identifies individuals using pre-trained models like VGG-Face.",
+      tech: ["Python", "DeepFace", "VGG-Face", "Real-time Video Processing", "Face Recognition", "OpenCV", "Face Detection"],
+      github: "https://github.com/Santhosh-Kumar-2004/RealTime-FaceRecognition-Project",
       live: "",
     },
   ];
