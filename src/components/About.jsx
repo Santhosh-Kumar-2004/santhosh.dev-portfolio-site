@@ -19,7 +19,8 @@ export default function About() {
     const targets = {
       experience: 1,
       projects: 20,
-      commits: 4500, 
+      commits: 4500,
+      AI_Experiments: 6,
     };
 
     const duration = 1500;
@@ -43,6 +44,10 @@ export default function About() {
         commits: Math.min(
           Math.floor(targets.commits * progress),
           targets.commits,
+        ),
+        AI_Experiments: Math.min(
+          Math.floor(targets.AI_Experiments * progress),
+          targets.AI_Experiments,
         ),
       });
 
@@ -118,9 +123,12 @@ export default function About() {
             </motion.p>
 
             <motion.p variants={itemVariants}>
-              I don’t just write code; I design systems. Whether it's crafting a
-              pixel-perfect UI or structuring application logic, I focus on
-              performance, maintainability, and user experience.
+              I’m deeply interested in technology and entrepreneurship, with a
+              strong ability to quickly learn and apply new technologies to
+              build meaningful products. I’m especially curious about developing
+              intelligent systems, including machine learning models and
+              conversational chatbots, and turning ideas into real-world
+              solutions.
             </motion.p>
           </div>
 
@@ -152,6 +160,11 @@ export default function About() {
             </div>
 
             <div className="stat-card">
+              <h3>{counts.AI_Experiments}+</h3>
+              <p>AI Experiments</p>
+            </div>
+
+            <div className="stat-card">
               <h3>{counts.projects}+</h3>
               <p>Projects Completed</p>
             </div>
@@ -160,6 +173,8 @@ export default function About() {
               <h3>{counts.commits}+</h3>
               <p>Code Commits on GitHub</p>
             </div>
+            
+            
           </div>
         </motion.div>
       </div>
