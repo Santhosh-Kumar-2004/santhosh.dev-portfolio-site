@@ -96,7 +96,7 @@
   height: 100%;
   object-fit: cover;
   /* Show a bit more of the top part of the image */
-  object-position: center 15%;
+  object-position: center 5%;
   /* Reverse (mirror) the image */
   transform: scaleX(-1);
 }
