@@ -107,7 +107,7 @@
   background: linear-gradient(
     to top,
     #000 0%,
-    rgba(0,0,0,0.85) 5%,
+    rgba(0,0,0,0.85) 15%,
     transparent 100%
   );
 }
